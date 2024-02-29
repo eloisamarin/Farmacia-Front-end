@@ -31,7 +31,7 @@ function DeletarCategoria() {
 
     async function deletarCategoria() {
         try {
-            await deletar(`/categorias/${id}`)
+            await deletar(`/categoria/${id}`)
             alert('Tema apagado com sucesso')
         } catch (error) {
             console.error('Erro ao apagar o Tema:', error)

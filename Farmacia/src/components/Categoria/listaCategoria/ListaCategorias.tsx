@@ -46,3 +46,4 @@ function ListaCategorias() {
 }
 
 export default ListaCategorias;
+

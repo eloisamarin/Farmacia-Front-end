@@ -12,7 +12,7 @@ function FormularioCategoria() {
   const { id } = useParams<{ id: string }>();
 
   async function buscarPorId(id: string) {
-    await buscar(`/categorias/${id}`, setCategorias);
+    await buscar(`/categoria/${id}`, setCategorias);
   }
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function FormularioCategoria() {
 
     } else {
       try {
-        await cadastrar(`/categorias`, categoria, setCategorias);
+        await cadastrar(`/categoria`, categoria, setCategorias);
 
         alert('Tema cadastrado com sucesso')
 
@@ -59,7 +59,7 @@ function FormularioCategoria() {
   }
 
   function retornar() {
-    navigate("/categorias")
+    navigate("/categoria")
   }
 
   return (
@@ -92,4 +92,5 @@ function FormularioCategoria() {
 }
 
 export default FormularioCategoria;
+
 

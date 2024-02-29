@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080/swagger-ui/index.html'
+  baseURL: 'http://localhost:8080'
 })
 
 
