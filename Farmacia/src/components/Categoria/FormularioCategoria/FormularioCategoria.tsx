@@ -3,15 +3,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Categoria from '../../../models/Categoria';
 import { atualizar, buscar, cadastrar } from '../../../services/Service';
 
-
 function FormularioCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
-
   const navigate = useNavigate();
-
   const { id } = useParams<{ id: string }>();
 
-  async function buscarPorId() {
+  async function buscarPorId(id: string) { // Modificando a função para aceitar um argumento id
     try {
       await buscar(`/categoria/${id}`, setCategoria);
     } catch (error) {
@@ -21,7 +18,7 @@ function FormularioCategoria() {
 
   useEffect(() => {
     if (id !== undefined) {
-      buscarPorId(id)
+      buscarPorId(id); // Chamada corrigida para passar o id como argumento
     }
   }, [id])
 
@@ -29,13 +26,12 @@ function FormularioCategoria() {
     setCategoria({
       ...categoria,
       [e.target.name]: e.target.value
-    })
-
-    console.log(JSON.stringify(categoria))
+    });
+    console.log(JSON.stringify(categoria));
   }
 
   async function gerarNovaCategoria(e: ChangeEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (id !== undefined) {
       try {
@@ -53,12 +49,11 @@ function FormularioCategoria() {
         alert('Erro ao cadastrado o Categoria');
       }
     }
-
     retornar();
   }
 
   function retornar() {
-    navigate("/categoria")
+    navigate("/categoria");
   }
 
   return (
@@ -102,5 +97,3 @@ function FormularioCategoria() {
 }
 
 export default FormularioCategoria;
-
-
